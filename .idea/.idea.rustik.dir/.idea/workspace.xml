@@ -14,10 +14,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5d3835f-98f1-41db-b18c-593b28f14ba1" name="Default Changelist" comment="Fixed README.md diagram">
-      <change afterPath="$PROJECT_DIR$/src/common.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/headers.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.rustik.dir/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rustik.dir/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/common.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/headers.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/headers.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,8 +45,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/bin/headers.rs" />
         <option value="$PROJECT_DIR$/src/common.rs" />
-        <option value="$PROJECT_DIR$/src/lib.rs" />
         <option value="$PROJECT_DIR$/src/headers.rs" />
+        <option value="$PROJECT_DIR$/src/lib.rs" />
       </list>
     </option>
   </component>
@@ -89,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607085453011</updated>
       <workItem from="1607085476722" duration="15450000" />
-      <workItem from="1607120735226" duration="497000" />
+      <workItem from="1607120735226" duration="3262000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1607096438343</created>
@@ -119,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607119588076</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added headers.rs and parsing">
+      <created>1607121814819</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607121814819</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,7 +149,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Init" />
     <MESSAGE value="Fixed README.md diagram" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed README.md diagram" />
+    <MESSAGE value="Added headers.rs and parsing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added headers.rs and parsing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="560" y="307" key="Github.ShareDialog" timestamp="1607119308195">

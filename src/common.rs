@@ -1,9 +1,10 @@
 
-
+#[derive(Copy, Clone)]
 pub struct CorrelationId {
     raw: [u8; 6]
 }
 
+#[derive(Copy, Clone)]
 pub struct NodeId {
     raw: [u8; 4]
 }
@@ -11,6 +12,10 @@ pub struct NodeId {
 impl CorrelationId {
     pub fn create(data: [u8; 6]) -> CorrelationId {
         CorrelationId { raw: data }
+    }
+    
+    pub fn to_bytes(&self) -> [u8;6] {
+        self.raw
     }
 }
 

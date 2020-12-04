@@ -1,4 +1,5 @@
 use crate::common::{NodeId, CorrelationId, create_u16};
+use std::borrow::Borrow;
 
 pub struct Handshake {
     from: NodeId,
@@ -45,6 +46,13 @@ impl Handshake {
             flags,
         }
     }
+    
+    pub fn create_response(&self) -> HandshakeResponse {
+       HandshakeResponse {
+           correlation_id: self.correlation_id.clone(),
+           flags: self.flags,
+       }
+    }
 }
 
 impl HandshakeResponse {
@@ -56,6 +64,22 @@ impl HandshakeResponse {
             correlation_id,
             flags
         }
+    }
+    
+    pub fn to_bytes(&self) -> [u8; 8] {
+        
+        let cor_id = self.correlation_id.to_bytes();
+
+        let mut result: [u8; 8] = [0; 8];
+        
+        for i in 0..5 {
+            result[i] = cor_id[i]
+        }
+        
+        result[6] = self.flags[0];
+        result[7] = self.flags[1];
+            
+        result
     }
 }
 

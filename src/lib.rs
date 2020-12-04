@@ -50,7 +50,22 @@ pub fn listen(ip_address: &str) {
 fn handle_connection(mut stream: TcpStream, logger: Logger) {
     let mut buffer = [0; 1024];
 
-
+    // Read the handshake header into the buffer.
+    
+    let mut handshake_buffer: [u8; 32] = [0; 32];
+    
+    stream.read(&mut handshake_buffer).unwrap();
+    
+    let header = headers::Handshake::create(handshake_buffer);
+    
+    let response = header.create_response();
+    
+    stream.write(&response.to_bytes()).unwrap();
+    
+    
+    
+    
+    
     stream.read(&mut buffer).unwrap();
 
     logger.send(LogItem::debug(String::from("Listener"), format!("Request: : {}", String::from_utf8_lossy(&buffer[..]))));
