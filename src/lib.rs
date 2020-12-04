@@ -2,9 +2,11 @@ use std::io::prelude::*;
 use std::net::{TcpStream, TcpListener};
 use crate::logging::{Log, Logger, LogItem};
 
+pub mod common;
 pub mod logging;
 pub mod threads;
 pub mod listener;
+pub mod headers;
 
 
 pub fn listen(ip_address: &str) {

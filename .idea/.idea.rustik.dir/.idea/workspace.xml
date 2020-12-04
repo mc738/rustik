@@ -13,9 +13,12 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d3835f-98f1-41db-b18c-593b28f14ba1" name="Default Changelist" comment="Init">
+    <list default="true" id="a5d3835f-98f1-41db-b18c-593b28f14ba1" name="Default Changelist" comment="Fixed README.md diagram">
+      <change afterPath="$PROJECT_DIR$/src/common.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/headers.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.rustik.dir/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rustik.dir/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +43,11 @@
         <option value="$PROJECT_DIR$/src/threads.rs" />
         <option value="$PROJECT_DIR$/src/bin/main.rs" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/lib.rs" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/bin/headers.rs" />
+        <option value="$PROJECT_DIR$/src/common.rs" />
+        <option value="$PROJECT_DIR$/src/lib.rs" />
+        <option value="$PROJECT_DIR$/src/headers.rs" />
       </list>
     </option>
   </component>
@@ -72,6 +78,7 @@
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="/usr/bin" />
+    <option name="version" value="2" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -81,7 +88,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607085453011</updated>
-      <workItem from="1607085476722" duration="14364000" />
+      <workItem from="1607085476722" duration="15450000" />
+      <workItem from="1607120735226" duration="497000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1607096438343</created>
@@ -104,13 +112,20 @@
       <option name="project" value="LOCAL" />
       <updated>1607119088811</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed README.md diagram">
+      <created>1607119588076</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607119588076</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -122,11 +137,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+    <MESSAGE value="Fixed README.md diagram" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed README.md diagram" />
   </component>
   <component name="WindowStateProjectService">
     <state x="560" y="307" key="Github.ShareDialog" timestamp="1607119308195">
