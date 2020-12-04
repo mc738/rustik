@@ -25,8 +25,8 @@ There are 4 types of header:
 __|_0_|_1_|_2_|_3_|_4_|_5_|_6_|_7_|
 00|FROM           |F_SIZE |F_COUNT|
 08|COR_ID                 |FLAGS  |
-16|CHK_SUM  
-32|
+16|CHK_SUM                        |
+32|                               |
 ```
 #### Key
 
