@@ -7,8 +7,11 @@ pub mod threads;
 pub mod listener;
 
 
-pub fn listen(ip_address: &str, logger: Logger) {
+pub fn listen(ip_address: &str) {
+
+    let (log, logger) = Log::create();
     
+    logger::log 
     let pool = threads::ThreadPool::new(4, logger.clone());
 
     let listener = TcpListener::bind(ip_address);
