@@ -219,6 +219,22 @@ impl Frame {
 
         Frame { header, data: data_buffer }
     }
+    
+    pub fn to_bytes(&self) -> [u8; 1024] {
+        let mut buffer: [u8; 1024] = [0; 1024];
+        
+        let header_bytes = self.header.to_bytes();
+        
+        for i in 0..7 {
+            buffer[i] = header_bytes[i];
+        };
+        
+        for i in 8..1023 {
+            buffer[i] = self.data[i - 8];
+        };
+        
+        buffer
+    }
 }
 
 impl FrameHeader {
@@ -237,6 +253,24 @@ impl FrameHeader {
             correlation_id,
             frame_number,
         }
+    }
+    
+    pub fn to_bytes(&self) -> [u8; 8] {
+        
+        let mut buffer: [u8;8] = [0; 8];
+        
+        let l = self.frame_number.to_be_bytes();
+        
+        let cor_id = self.correlation_id.to_bytes();
+        
+        for i in 0..5 {
+            buffer[i] = cor_id[i];
+        };
+        
+        buffer[6] = l[0];
+        buffer[7] = l[1];
+        
+        buffer
     }
 }
 
