@@ -73,8 +73,6 @@ fn handle_connection(mut stream: TcpStream, logger: Logger) {
                                 settings.from.value,
                                 settings.correlation_id.value,
                                 settings.frame_count);
-
-                    // For now save the sa
                     
                     logger.send(LogItem::info(String::from("connection_handler"), message));
                 }
@@ -146,8 +144,6 @@ fn handle_frame(frame: &Frame) -> Result<(), &'static str> {
 fn handle_data(cor_id: CorrelationId, data: Vec<u8>) {
     // For now just save the data to a fixed location.
     let location = "/home/max/Data/rustik_test";
-    
-    
     
     let path = Path::new(&cor_id.value);
     

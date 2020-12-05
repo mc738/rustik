@@ -178,14 +178,15 @@ impl MessageResult {
     pub fn get_data(&self) -> Vec<u8> {
         
         let mut data:Vec<u8> = Vec::new();
-        
+
+        // TODO Handle errors, this currently assumes all frames where received successfully.
         for i in &self.frame_results {
             match &i.result {
                 FrameResultType::Success(f) => {
                     data.append(&mut f.data.to_vec());
                 }
                 FrameResultType::Error(e) => {
-                    // TODO Handle errors.
+                    
                 }
             }
         }

@@ -13,7 +13,7 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d3835f-98f1-41db-b18c-593b28f14ba1" name="Default Changelist" comment="Added MessageResult and FrameResult">
+    <list default="true" id="a5d3835f-98f1-41db-b18c-593b28f14ba1" name="Default Changelist" comment="Added simple data handler">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/messaging.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/messaging.rs" afterDir="false" />
@@ -48,8 +48,8 @@
         <option value="$PROJECT_DIR$/src/node.rs" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/common.rs" />
-        <option value="$PROJECT_DIR$/src/messaging.rs" />
         <option value="$PROJECT_DIR$/src/lib.rs" />
+        <option value="$PROJECT_DIR$/src/messaging.rs" />
       </list>
     </option>
   </component>
@@ -91,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607085453011</updated>
       <workItem from="1607085476722" duration="15450000" />
-      <workItem from="1607120735226" duration="15277000" />
+      <workItem from="1607120735226" duration="16124000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1607096438343</created>
@@ -163,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607186540998</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added simple data handler">
+      <created>1607187704842</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1607187704842</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,18 +200,19 @@
     <MESSAGE value="Added covert_bytes_to_hex" />
     <MESSAGE value="Added messaging.rs and moved headers" />
     <MESSAGE value="Added MessageResult and FrameResult" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added MessageResult and FrameResult" />
+    <MESSAGE value="Added simple data handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added simple data handler" />
   </component>
   <component name="WindowStateProjectService">
     <state x="560" y="307" key="Github.ShareDialog" timestamp="1607119308195">
       <screen x="0" y="45" width="1366" height="723" />
     </state>
     <state x="560" y="307" key="Github.ShareDialog/0.45.1366.723@0.45.1366.723" timestamp="1607119308195" />
-    <state x="391" y="184" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1607183829762">
+    <state x="391" y="184" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1607187707038">
       <screen x="0" y="45" width="1920" height="1035" />
     </state>
     <state x="278" y="142" width="800" height="527" key="Vcs.Push.Dialog.v2/0.45.1366.723@0.45.1366.723" timestamp="1607124079557" />
-    <state x="391" y="184" key="Vcs.Push.Dialog.v2/0.45.1920.1035@0.45.1920.1035" timestamp="1607183829762" />
+    <state x="391" y="184" key="Vcs.Push.Dialog.v2/0.45.1920.1035@0.45.1920.1035" timestamp="1607187707038" />
     <state x="346" y="88" width="672" height="678" key="search.everywhere.popup" timestamp="1607089322165">
       <screen x="0" y="45" width="1366" height="723" />
     </state>
