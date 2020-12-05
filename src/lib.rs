@@ -114,7 +114,7 @@ fn read_frame(mut stream: &TcpStream, mut buffer: [u8; 1024]) -> () {
     
     let header = Frame::create(header_buffer);
     
-    let body = vec![buffer[7..]];
+    //let body = vec![buffer[7..]];
     
     
     
