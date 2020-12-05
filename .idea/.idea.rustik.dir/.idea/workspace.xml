@@ -88,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607085453011</updated>
       <workItem from="1607085476722" duration="15450000" />
-      <workItem from="1607120735226" duration="3262000" />
+      <workItem from="1607120735226" duration="5730000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1607096438343</created>
@@ -125,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607121814819</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Updated handshake handling">
+      <created>1607124075457</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607124075457</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,13 +157,18 @@
     <MESSAGE value="Init" />
     <MESSAGE value="Fixed README.md diagram" />
     <MESSAGE value="Added headers.rs and parsing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added headers.rs and parsing" />
+    <MESSAGE value="Updated handshake handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated handshake handling" />
   </component>
   <component name="WindowStateProjectService">
     <state x="560" y="307" key="Github.ShareDialog" timestamp="1607119308195">
       <screen x="0" y="45" width="1366" height="723" />
     </state>
     <state x="560" y="307" key="Github.ShareDialog/0.45.1366.723@0.45.1366.723" timestamp="1607119308195" />
+    <state x="278" y="142" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1607124079557">
+      <screen x="0" y="45" width="1366" height="723" />
+    </state>
+    <state x="278" y="142" width="800" height="527" key="Vcs.Push.Dialog.v2/0.45.1366.723@0.45.1366.723" timestamp="1607124079557" />
     <state x="346" y="88" width="672" height="678" key="search.everywhere.popup" timestamp="1607089322165">
       <screen x="0" y="45" width="1366" height="723" />
     </state>

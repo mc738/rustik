@@ -1,6 +1,8 @@
 use std::io::prelude::*;
 use std::net::{TcpStream, TcpListener};
 use crate::logging::{Log, Logger, LogItem};
+use crate::common::RequestSettings;
+use crate::headers::Frame;
 
 pub mod common;
 pub mod logging;
@@ -43,34 +45,77 @@ pub fn listen(ip_address: &str) {
             // Listener failed.
             println!("e: {}", e);
         }
-        
     }
 }
 
 fn handle_connection(mut stream: TcpStream, logger: Logger) {
     let mut buffer = [0; 1024];
+    logger.send(LogItem::debug(String::from("Listener"), format!("Request: : {}", String::from_utf8_lossy(&buffer[..]))));
 
-    // Read the handshake header into the buffer.
+    // Attempted to handled the handshake
+    let handshake_result = handle_handshake(&stream);
     
-    let mut handshake_buffer: [u8; 32] = [0; 32];
-    
-    stream.read(&mut handshake_buffer).unwrap();
-    
-    let header = headers::Handshake::create(handshake_buffer);
-    
-    let response = header.create_response();
-    
-    stream.write(&response.to_bytes()).unwrap();
-    
-    
-    
-    
+    match handshake_result {
+        Ok(settings) => {
+            handle_request(&stream, settings);
+        }
+        Err (e) => {
+            
+        }
+    }
     
     stream.read(&mut buffer).unwrap();
-
-    logger.send(LogItem::debug(String::from("Listener"), format!("Request: : {}", String::from_utf8_lossy(&buffer[..]))));
 }
 
+fn handle_handshake(mut stream: &TcpStream) -> Result<RequestSettings, &'static str> {
+    let mut handshake_buffer: [u8; 32] = [0; 32];
 
+    let read_result = stream.read(&mut handshake_buffer);
 
+    match read_result {
+        Ok(_) => {
+            let header = headers::Handshake::create(handshake_buffer);
 
+            let response = header.create_response();
+            let settings = header.create_settings();
+            
+            let write_result = stream.write(&response.to_bytes());
+            
+            match write_result {
+                Ok(_) => Ok(settings),
+                Err(_) => Err("Could not write handshake response")
+            }
+        }
+        Err(_) => Err("Could not read handshake header")
+        
+    }
+    
+}
+
+fn handle_request(mut stream: &TcpStream, settings: RequestSettings) -> Result<(), &'static str> {
+    let buffer = [0; 1024];
+    
+    for i in 0..settings.frame_count {
+        read_frame(stream, buffer);
+    }
+    
+    Ok (())
+}
+
+fn read_frame(mut stream: &TcpStream, mut buffer: [u8; 1024]) -> () {
+    stream.read(&mut buffer);
+    
+    // Take the first 8 bytes to make the header.
+    let mut header_buffer: [u8; 8] = [0; 8];
+    
+    for i in 0..7 {
+        header_buffer[i] = buffer[i];
+    }
+    
+    let header = Frame::create(header_buffer);
+    
+    let body = vec![buffer[7..]];
+    
+    
+    
+}

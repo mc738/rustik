@@ -1,4 +1,4 @@
-use crate::common::{NodeId, CorrelationId, create_u16};
+use crate::common::{NodeId, CorrelationId, create_u16,RequestSettings};
 use std::borrow::Borrow;
 
 pub struct Handshake {
@@ -52,6 +52,10 @@ impl Handshake {
            correlation_id: self.correlation_id.clone(),
            flags: self.flags,
        }
+    }
+    
+    pub fn create_settings(&self) -> RequestSettings {
+        RequestSettings { frame_size: self.frame_size, frame_count: self.frame_count }
     }
 }
 
