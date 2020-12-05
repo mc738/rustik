@@ -89,3 +89,16 @@ __|_0_|_1_|_2_|_3_|_4_|_5_|_6_|_7_|
 #### Notes
 
 The frame response header is the same as the related frame header.    
+
+
+## CLI
+
+Listen:
+
+`rustik -l [ip address]`
+
+
+
+`rustik -w [directory path]`
+
+`rustik -s [file path]`

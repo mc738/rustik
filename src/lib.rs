@@ -2,13 +2,14 @@ use std::io::prelude::*;
 use std::net::{TcpStream, TcpListener};
 use crate::logging::{Log, Logger, LogItem};
 use crate::common::RequestSettings;
-use crate::headers::Frame;
+use crate::messaging::*;
 
 pub mod common;
 pub mod logging;
 pub mod threads;
 pub mod listener;
-pub mod headers;
+pub mod node;
+pub mod messaging;
 
 
 pub fn listen(ip_address: &str) {
@@ -74,7 +75,7 @@ fn handle_handshake(mut stream: &TcpStream) -> Result<RequestSettings, &'static 
 
     match read_result {
         Ok(_) => {
-            let header = headers::Handshake::create(handshake_buffer);
+            let header = messaging::HandshakeHeader::create(handshake_buffer);
 
             let response = header.create_response();
             let settings = header.create_settings();
@@ -96,26 +97,16 @@ fn handle_request(mut stream: &TcpStream, settings: RequestSettings) -> Result<(
     let buffer = [0; 1024];
     
     for i in 0..settings.frame_count {
-        read_frame(stream, buffer);
+        let frame = read_frame(stream, buffer);
+        
+        
     }
     
     Ok (())
 }
 
-fn read_frame(mut stream: &TcpStream, mut buffer: [u8; 1024]) -> () {
+fn read_frame(mut stream: &TcpStream, mut buffer: [u8; 1024]) -> Frame {
     stream.read(&mut buffer);
-    
-    // Take the first 8 bytes to make the header.
-    let mut header_buffer: [u8; 8] = [0; 8];
-    
-    for i in 0..7 {
-        header_buffer[i] = buffer[i];
-    }
-    
-    let header = Frame::create(header_buffer);
-    
-    //let body = vec![buffer[7..]];
-    
-    
-    
+
+    Frame::create(buffer)
 }
