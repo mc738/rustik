@@ -58,7 +58,9 @@ fn handle_connection(mut stream: TcpStream, logger: Logger) {
     
     match handshake_result {
         Ok(settings) => {
-            handle_request(&stream, settings);
+            let result = handle_request(&stream, settings);
+            
+            // TOOD handle the result.
         }
         Err (e) => {
             
@@ -93,20 +95,35 @@ fn handle_handshake(mut stream: &TcpStream) -> Result<RequestSettings, &'static 
     
 }
 
-fn handle_request(mut stream: &TcpStream, settings: RequestSettings) -> Result<(), &'static str> {
+fn handle_request(mut stream: &TcpStream, settings: RequestSettings) -> Result<MessageResult, &'static str> {
     let buffer = [0; 1024];
+    
+    let mut msg_result = MessageResult::create(settings.correlation_id, settings.frame_count as usize);
     
     for i in 0..settings.frame_count {
         let frame = read_frame(stream, buffer);
         
+        let result = match handle_frame(&frame) {
+            Ok(_) => {
+                FrameResult::create_success(frame.header.frame_number, frame) 
+            }
+            Err(e) => {
+                FrameResult::create_error(frame.header.frame_number, e)
+            }
+        };
         
+        msg_result.add_result(result);
     }
     
-    Ok (())
+    Ok (msg_result)
 }
 
 fn read_frame(mut stream: &TcpStream, mut buffer: [u8; 1024]) -> Frame {
     stream.read(&mut buffer);
 
     Frame::create(buffer)
+}
+
+fn handle_frame(frame: &Frame) -> Result<(), &'static str> {
+    Err("Not implemented")
 }

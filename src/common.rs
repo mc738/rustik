@@ -16,6 +16,8 @@ pub struct NodeId {
 pub struct RequestSettings {
     pub frame_size: u16,
     pub frame_count: u16,
+    pub correlation_id: CorrelationId,
+    pub from: NodeId,
 }
 
 impl CorrelationId {
