@@ -13,9 +13,8 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d3835f-98f1-41db-b18c-593b28f14ba1" name="Default Changelist" comment="Fixed README.md diagram">
+    <list default="true" id="a5d3835f-98f1-41db-b18c-593b28f14ba1" name="Default Changelist" comment="Added MessageResult and FrameResult">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/common.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/messaging.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/messaging.rs" afterDir="false" />
     </list>
@@ -49,8 +48,8 @@
         <option value="$PROJECT_DIR$/src/node.rs" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/common.rs" />
-        <option value="$PROJECT_DIR$/src/lib.rs" />
         <option value="$PROJECT_DIR$/src/messaging.rs" />
+        <option value="$PROJECT_DIR$/src/lib.rs" />
       </list>
     </option>
   </component>
@@ -92,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607085453011</updated>
       <workItem from="1607085476722" duration="15450000" />
-      <workItem from="1607120735226" duration="13916000" />
+      <workItem from="1607120735226" duration="15277000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1607096438343</created>
@@ -157,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607183826027</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added MessageResult and FrameResult">
+      <created>1607186540998</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1607186540998</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,7 +192,8 @@
     <MESSAGE value="added read_frame" />
     <MESSAGE value="Added covert_bytes_to_hex" />
     <MESSAGE value="Added messaging.rs and moved headers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added messaging.rs and moved headers" />
+    <MESSAGE value="Added MessageResult and FrameResult" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added MessageResult and FrameResult" />
   </component>
   <component name="WindowStateProjectService">
     <state x="560" y="307" key="Github.ShareDialog" timestamp="1607119308195">
