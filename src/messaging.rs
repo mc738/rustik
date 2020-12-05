@@ -1,4 +1,13 @@
+use crypto::md5::Md5;
+use crypto::digest::Digest;
 use crate::common::*;
+use std::slice::from_mut;
+
+pub struct Message {
+    pub correlation_id: CorrelationId,
+    check_sum: [u8; 16],
+    pub data: Vec<u8>,
+}
 
 pub struct HandshakeHeader {
     from: NodeId,
@@ -44,6 +53,48 @@ pub struct FrameResult {
     pub result: FrameResultType,
 }
 
+impl Message {
+    pub fn create(data: Vec<u8>) -> Message {
+
+        let mut hasher = Md5::new();
+        
+        hasher.input(&data);
+        
+        let mut check_sum =  [0; 16];
+        
+        hasher.result(&mut check_sum);
+        
+        Message {
+            correlation_id: CorrelationId::new(),
+            check_sum,
+            data,
+        }
+    }
+    
+    pub fn create_frames(&self) -> /*Vec<Frame>*/ () {
+        // 
+        let size = self.data.len() as i32;
+        
+        let rem = size % 1016;
+        
+        let mut frame_count = size / 1016;
+        
+        // If there is a remainer ad one to the frame count and add set padding.
+        
+        let mut padding = 0;
+        
+        if rem > 0 { 
+            frame_count = frame_count + 1;
+            padding = 1016 - rem
+        };
+        
+        let header_size = frame_count * 8; 
+        
+        let total_size = (frame_count * 1016) + header_size;
+        
+        println!("Frame count: {}, Padding: {}, Total size: {}, Header size: {}", frame_count, padding, total_size, header_size);
+    }
+}
 
 impl HandshakeHeader {
     pub fn create(data: [u8; 32]) -> HandshakeHeader {

@@ -14,6 +14,29 @@ pub mod node;
 pub mod messaging;
 
 
+pub fn test_framing(path: &'static str) {
+    let path = Path::new(path);
+
+    let mut data: Vec<u8> = Vec::new();
+    
+    let mut file = match File::open(path) {
+        Err(_) => panic!("Could not create file."),
+        Ok(mut file) => {
+            match file.read_to_end(&mut data) {
+                Err(_) => panic!("Could not read file"),
+                Ok(_) => {
+                    let message = Message::create(data);
+                    
+                    message.create_frames();
+                }
+            }
+        }
+    };
+    
+}
+
+
+
 pub fn listen(ip_address: &str) {
     let (log, logger) = Log::create();
 

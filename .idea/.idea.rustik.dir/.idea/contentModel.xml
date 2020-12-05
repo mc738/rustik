@@ -4,14 +4,28 @@
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_.19.00" t="ExcludeRecursive" />
     <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/cfg-if-0.1.10" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/fuchsia-cprng-0.1.1" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/gcc-0.3.55" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.1.15" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/libc-0.2.80" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.10" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/rand-0.3.23" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/rand-0.4.6" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/rand-0.7.3" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_chacha-0.2.2" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.3.1" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.4.2" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_core-0.5.1" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/rand_hc-0.2.0" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/rdrand-0.4.0" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/rust-crypto-0.2.36" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/rustc-serialize-0.3.24" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/wasi-0.10.0+wasi-snapshot-preview1" t="IncludeRecursive" />
     <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/wasi-0.9.0+wasi-snapshot-preview1" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/winapi-0.3.9" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/winapi-i686-pc-windows-gnu-0.4.0" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cargo/registry/src/github.com-1ecc6299db9ec823/winapi-x86_64-pc-windows-gnu-0.4.0" t="IncludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
     <e p="$USER_HOME$/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc" t="IncludeRecursive" />
     <e p="$USER_HOME$/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/backtrace" t="IncludeRecursive" />
