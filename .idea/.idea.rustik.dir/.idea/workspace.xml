@@ -13,11 +13,8 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d3835f-98f1-41db-b18c-593b28f14ba1" name="Default Changelist" comment="Deleted whitespace">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="a5d3835f-98f1-41db-b18c-593b28f14ba1" name="Default Changelist" comment="Added create framing info">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bin/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/main.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/messaging.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/messaging.rs" afterDir="false" />
@@ -51,9 +48,9 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/common.rs" />
         <option value="$PROJECT_DIR$/Cargo.toml" />
+        <option value="$PROJECT_DIR$/src/bin/main.rs" />
         <option value="$PROJECT_DIR$/src/lib.rs" />
         <option value="$PROJECT_DIR$/src/messaging.rs" />
-        <option value="$PROJECT_DIR$/src/bin/main.rs" />
       </list>
     </option>
   </component>
@@ -95,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607085453011</updated>
       <workItem from="1607085476722" duration="15450000" />
-      <workItem from="1607120735226" duration="18523000" />
+      <workItem from="1607120735226" duration="19870000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1607096438343</created>
@@ -181,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607191516433</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added create framing info">
+      <created>1607194017169</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1607194017169</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +217,8 @@
     <MESSAGE value="Added MessageResult and FrameResult" />
     <MESSAGE value="Added simple data handler" />
     <MESSAGE value="Deleted whitespace" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleted whitespace" />
+    <MESSAGE value="Added create framing info" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added create framing info" />
   </component>
   <component name="WindowStateProjectService">
     <state x="560" y="307" key="Github.ShareDialog" timestamp="1607119308195">

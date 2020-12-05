@@ -9,7 +9,7 @@ use rustik::messaging::Message;
 fn main() {
     
     
-    test_framing("/home/max/Data/rustik_test/test_file");
+    let frames = test_framing("/home/max/Data/rustik_test/test_file");
     
     
     

@@ -2,6 +2,7 @@ use crypto::md5::Md5;
 use crypto::digest::Digest;
 use crate::common::*;
 use std::slice::from_mut;
+use std::convert::TryFrom;
 
 pub struct Message {
     pub correlation_id: CorrelationId,
@@ -71,15 +72,16 @@ impl Message {
         }
     }
     
-    pub fn create_frames(&self) -> /*Vec<Frame>*/ () {
+    pub fn create_frames(&mut self) -> Vec<Frame> {
         // 
+        
         let size = self.data.len() as i32;
         
         let rem = size % 1016;
         
         let mut frame_count = size / 1016;
         
-        // If there is a remainer ad one to the frame count and add set padding.
+        // If there is a remainder ad one to the frame count and add set padding.
         
         let mut padding = 0;
         
@@ -92,7 +94,36 @@ impl Message {
         
         let total_size = (frame_count * 1016) + header_size;
         
+        let mut frame_no = 1;
+
+        let mut frames = Vec::with_capacity(frame_count as usize);
+
+        println!("{}", self.data.len());
+        
+        // Bit ugly...but works
+        // Add padding to the data, if not padded, it will fail later on.
+        for i in 0..padding {
+            self.data.push(0);
+        }
+        
+        println!("{}", self.data.len());
+
         println!("Frame count: {}, Padding: {}, Total size: {}, Header size: {}", frame_count, padding, total_size, header_size);
+        
+        for chunk in self.data.chunks(1016) {
+            let frame = Frame {
+                header: FrameHeader::generate(self.correlation_id.clone(), frame_no),
+                data: <[u8; 1016]>::try_from(chunk).unwrap(),
+            };
+            
+            frames.push(frame);
+            
+            frame_no = frame_no + 1;
+        }
+        
+        
+        
+        return frames;
     }
 }
 
@@ -195,6 +226,13 @@ impl FrameHeader {
         let correlation_id = CorrelationId::create([data[0], data[1], data[2], data[3], data[4], data[5]]);
         let frame_number = create_u16([data[6], data[7]]);
 
+        FrameHeader {
+            correlation_id,
+            frame_number,
+        }
+    }
+    
+    pub fn generate(correlation_id : CorrelationId, frame_number: u16) -> FrameHeader {
         FrameHeader {
             correlation_id,
             frame_number,
