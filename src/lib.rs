@@ -112,8 +112,8 @@ fn handle_connection(mut stream: TcpStream, logger: Logger) {
                     
                     let message = 
                         format!("Message received from `{}`. Correlation ID: {}, Frames: {}", 
-                                settings.from.value,
-                                settings.correlation_id.value,
+                                settings.from.to_string(),
+                                settings.correlation_id.to_string(),
                                 settings.frame_count);
                     
                     logger.send(LogItem::info(String::from("connection_handler"), message));
@@ -187,15 +187,15 @@ fn handle_data(cor_id: CorrelationId, data: Vec<u8>) {
     // For now just save the data to a fixed location.
     let location = "/home/max/Data/rustik_test";
     
-    let path = Path::new(&cor_id.value);
-    
-    let mut file = match File::create(&path) {
-        Err(_) => panic!("Could not create file."),
-        Ok(file) => file,
-    };
-    
-    match file.write_all(&data) {
-        Err(_) => panic!("Could not save to file"),
-        Ok(_) => (),
-    }
+    // let path = Path::new(&cor_id.to_string());
+    // 
+    // let mut file = match File::create(&path) {
+    //     Err(_) => panic!("Could not create file."),
+    //     Ok(file) => file,
+    // };
+    // 
+    // match file.write_all(&data) {
+    //     Err(_) => panic!("Could not save to file"),
+    //     Ok(_) => (),
+    // }
 }

@@ -1,16 +1,14 @@
 use core::fmt::Write;
 use rand::Rng;
 
-#[derive(Clone)]
+#[derive(Copy, Clone)]
 pub struct CorrelationId {
     raw: [u8; 6],
-    pub value: String,
 }
 
-#[derive(Clone)]
+#[derive(Copy, Clone)]
 pub struct NodeId {
     raw: [u8; 4],
-    pub value: String,
 }
 
 pub struct RequestSettings {
@@ -22,7 +20,7 @@ pub struct RequestSettings {
 
 impl CorrelationId {
     pub fn create(data: [u8; 6]) -> CorrelationId {
-        CorrelationId { raw: data, value: covert_bytes_to_hex(data.to_vec()) }
+        CorrelationId { raw: data }
     }
 
     pub fn new() -> CorrelationId {
@@ -33,11 +31,15 @@ impl CorrelationId {
     pub fn to_bytes(&self) -> [u8; 6] {
         self.raw
     }
+    
+    pub fn to_string(&self) -> String {
+        covert_bytes_to_hex(self.raw.to_vec())
+    }   
 }
 
 impl NodeId {
     pub fn create(data: [u8; 4]) -> NodeId {
-        NodeId { raw: data, value: covert_bytes_to_hex(data.to_vec()) }
+        NodeId { raw: data }
     }
 
     pub fn new() -> NodeId {
@@ -46,6 +48,10 @@ impl NodeId {
     }
 
     pub fn to_bytes(&self) -> [u8; 4] { self.raw }
+
+    pub fn to_string(&self) -> String {
+        covert_bytes_to_hex(self.raw.to_vec())
+    }
 }
 
 pub fn create_u16(data: [u8; 2]) -> u16 {

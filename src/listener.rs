@@ -69,8 +69,8 @@ impl Listener {
 
                         let message =
                             format!("Message received from `{}`. Correlation ID: {}, Frames: {}",
-                                    settings.from.value,
-                                    settings.correlation_id.value,
+                                    settings.from.to_string(),
+                                    settings.correlation_id.to_string(),
                                     settings.frame_count);
 
                         logger.send(LogItem::info(String::from("connection_handler"), message));
@@ -144,7 +144,9 @@ impl Listener {
         // For now just save the data to a fixed location.
         let location = "/home/max/Data/rustik_test";
 
-        let path = Path::new(&cor_id.value);
+        let cor_id = cor_id.to_string();
+        
+        let path = Path::new(&cor_id);
 
         let mut file = match File::create(&path) {
             Err(_) => panic!("Could not create file."),
