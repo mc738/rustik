@@ -34,7 +34,27 @@ pub fn test_framing(path: &'static str) -> Vec<Frame> {
     }
 }
 
-
+pub fn send(ip_address: &str) {
+    let con_result = TcpStream::connect(ip_address);
+    
+    match con_result {
+        Ok(stream) => {
+            // Create the frames.
+            
+            // Create the handshake.
+            
+            // Send the handshake.
+            
+            // Await handshake response.
+            
+            // Send frames.
+        }
+        Err(_) => {
+            
+        }
+    }
+    
+}
 
 pub fn listen(ip_address: &str) {
     let (log, logger) = Log::create();
