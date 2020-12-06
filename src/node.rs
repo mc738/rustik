@@ -57,9 +57,10 @@ impl Node {
         
         match con_result {
             Ok(mut stream) => {
-                let message = Message::create(data);
+                let mut message = Message::create(data);
                 
-                let handshake = HandshakeHeader::generate(self.id, 1024, message.data.len() as u16, message.correlation_id, [0; 2]);
+                // TODO Frame size hardcoded to 4 for now, change this. 
+                let handshake = HandshakeHeader::generate(self.id, 1024, 4, message.correlation_id, [0; 2]);
 
                 self.logger.send(LogItem::info(format!("node_{}", self.id.to_string()), format!("Message created, correlation id: '{}'", message.correlation_id.to_string())));
                 self.logger.send(LogItem::info(format!("node_{}", self.id.to_string()), format!("Sending handshake")));
@@ -76,10 +77,16 @@ impl Node {
                 
                 self.logger.send(LogItem::info(format!("node_{}", self.id.to_string()), format!("Handshake response received, correlation id: '{}'", handshake_response.correlation_id.to_string())));
 
+                let frames = message.create_frames();
 
-                //for i in message.data {
+                let total = frames.len();
+                
+                for frame in frames {
+
+                    self.logger.send(LogItem::info(format!("node_{}", self.id.to_string()), format!("Message: {} - sending frame {} of {}", message.correlation_id.to_string(), frame.header.frame_number, total)));
                     
-                //}
+                    stream.write(&frame.to_bytes());
+                }
             }
             Err(e) => {}
         }

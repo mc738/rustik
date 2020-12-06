@@ -139,7 +139,7 @@ impl HandshakeHeader {
         let correlation_id = CorrelationId::create([data[8], data[9], data[10], data[11], data[12], data[13]]);
 
         let flags = [data[14], data[15]];
-
+        
         HandshakeHeader {
             from,
             frame_size,
@@ -258,7 +258,7 @@ impl Frame {
         let header = FrameHeader::create(header_buffer);
 
         for i in 8..1023 {
-            data_buffer[i] = data[i];
+            data_buffer[i - 8] = data[i];
         }
 
         Frame { header, data: data_buffer }

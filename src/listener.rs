@@ -58,26 +58,26 @@ impl Listener {
 
         match handshake_result {
             Ok(settings) => {
-                //let result =  Listener::handle_request(&stream, &settings);
+                let result =  Listener::handle_request(&stream, &settings);
 
                 logger.send(LogItem::success(String::from("Listener"), format!("Message received, correlation id: '{}'", settings.correlation_id.to_string())));
                 // TODO handle error
-                // match result {
-                //     Ok(message) => {
-                //         let data = message.get_data();
-                // 
-                //         Listener::handle_data(settings.correlation_id.clone(), data);
-                // 
-                //         let message =
-                //             format!("Message received from `{}`. Correlation ID: {}, Frames: {}",
-                //                     settings.from.to_string(),
-                //                     settings.correlation_id.to_string(),
-                //                     settings.frame_count);
-                // 
-                //         logger.send(LogItem::info(String::from("connection_handler"), message));
-                //     }
-                //     Err(e) => {}
-                //}
+                match result {
+                    Ok(message) => {
+                        let data = message.get_data();
+                
+                        Listener::handle_data(settings.correlation_id.clone(), data);
+                
+                        let message =
+                            format!("Message received from `{}`. Correlation ID: {}, Frames: {}",
+                                    settings.from.to_string(),
+                                    settings.correlation_id.to_string(),
+                                    settings.frame_count);
+                
+                        logger.send(LogItem::info(String::from("connection_handler"), message));
+                    }
+                    Err(e) => {}
+                }
             }
             Err(e) => {}
         }
@@ -112,12 +112,20 @@ impl Listener {
         let buffer = [0; 1024];
 
         let mut msg_result = MessageResult::create(settings.correlation_id.clone(), settings.frame_count as usize);
-
-        for i in 0..settings.frame_count {
+        
+        //println!("******** Frame count: {}", settings.frame_count);
+        
+        for i in 1..=settings.frame_count {
+            
+            
             let frame = Listener::read_frame(stream, buffer);
 
+            
+            
             let result = match Listener::handle_frame(&frame) {
                 Ok(_) => {
+                    // TODO switch to logger.
+                    println!("Receiving frame {}", i);
                     FrameResult::create_success(frame.header.frame_number, frame)
                 }
                 Err(e) => {
@@ -138,7 +146,7 @@ impl Listener {
     }
 
     fn handle_frame(frame: &Frame) -> Result<(), &'static str> {
-        Err("Not implemented")
+        Ok(())
     }
 
     fn handle_data(cor_id: CorrelationId, data: Vec<u8>) {
@@ -147,7 +155,9 @@ impl Listener {
 
         let cor_id = cor_id.to_string();
         
-        let path = Path::new(&cor_id);
+        let p = format!("{}.txt", cor_id);
+        
+        let path = Path::new(&p);
 
         let mut file = match File::create(&path) {
             Err(_) => panic!("Could not create file."),
