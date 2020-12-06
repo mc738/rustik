@@ -1,7 +1,9 @@
 use crate::listener::Listener;
 use crate::logging::{Log, Logger, LogItem};
-use crate::messaging::Message;
+use crate::messaging::{Message, HandshakeHeader, HandshakeResponseHeader};
 use crate::common::NodeId;
+use std::net::TcpStream;
+use std::io::{Write, Read};
 
 pub struct Node {
     id: NodeId,
@@ -49,7 +51,40 @@ impl Node {
         self.listener.listen()
     }
 
-    pub fn send(&self, data: Vec<u8>) -> () {
-        let message = Message::create(data);
+    pub fn send(&self, ip_address: &str, data: Vec<u8>) -> () {
+
+        let con_result = TcpStream::connect(ip_address);
+        
+        match con_result {
+            Ok(mut stream) => {
+                let message = Message::create(data);
+                
+                let handshake = HandshakeHeader::generate(self.id, 1024, message.data.len() as u16, message.correlation_id, [0; 2]);
+
+                self.logger.send(LogItem::info(format!("node_{}", self.id.to_string()), format!("Message created, correlation id: '{}'", message.correlation_id.to_string())));
+                self.logger.send(LogItem::info(format!("node_{}", self.id.to_string()), format!("Sending handshake")));
+                
+                stream.write(&handshake.to_bytes());
+                
+                // Read the response
+                
+                let mut buffer: [u8; 8] = [0; 8];
+                
+                stream.read(&mut buffer);
+                
+                let handshake_response = HandshakeResponseHeader::create(buffer);
+                
+                self.logger.send(LogItem::info(format!("node_{}", self.id.to_string()), format!("Handshake response received, correlation id: '{}'", handshake_response.correlation_id.to_string())));
+
+
+                //for i in message.data {
+                    
+                //}
+            }
+            Err(e) => {}
+        }
+        
+        
+        
     }
 }

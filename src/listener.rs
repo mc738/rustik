@@ -58,25 +58,26 @@ impl Listener {
 
         match handshake_result {
             Ok(settings) => {
-                let result =  Listener::handle_request(&stream, &settings);
+                //let result =  Listener::handle_request(&stream, &settings);
 
+                logger.send(LogItem::success(String::from("Listener"), format!("Message received, correlation id: '{}'", settings.correlation_id.to_string())));
                 // TODO handle error
-                match result {
-                    Ok(message) => {
-                        let data = message.get_data();
-
-                        Listener::handle_data(settings.correlation_id.clone(), data);
-
-                        let message =
-                            format!("Message received from `{}`. Correlation ID: {}, Frames: {}",
-                                    settings.from.to_string(),
-                                    settings.correlation_id.to_string(),
-                                    settings.frame_count);
-
-                        logger.send(LogItem::info(String::from("connection_handler"), message));
-                    }
-                    Err(e) => {}
-                }
+                // match result {
+                //     Ok(message) => {
+                //         let data = message.get_data();
+                // 
+                //         Listener::handle_data(settings.correlation_id.clone(), data);
+                // 
+                //         let message =
+                //             format!("Message received from `{}`. Correlation ID: {}, Frames: {}",
+                //                     settings.from.to_string(),
+                //                     settings.correlation_id.to_string(),
+                //                     settings.frame_count);
+                // 
+                //         logger.send(LogItem::info(String::from("connection_handler"), message));
+                //     }
+                //     Err(e) => {}
+                //}
             }
             Err(e) => {}
         }

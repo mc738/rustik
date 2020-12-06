@@ -13,7 +13,11 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d3835f-98f1-41db-b18c-593b28f14ba1" name="Default Changelist" comment="Fixed CorrelationId and NodeId string issue">
+    <list default="true" id="a5d3835f-98f1-41db-b18c-593b28f14ba1" name="Default Changelist" comment="Added basic logging to node">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rustik.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bin/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/bin/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/listener.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/listener.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messaging.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/messaging.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/node.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/node.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,11 +46,11 @@
         <option value="$PROJECT_DIR$/src/bin/node.rs" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Cargo.toml" />
+        <option value="$PROJECT_DIR$/src/common.rs" />
+        <option value="$PROJECT_DIR$/src/lib.rs" />
         <option value="$PROJECT_DIR$/src/bin/main.rs" />
         <option value="$PROJECT_DIR$/src/messaging.rs" />
-        <option value="$PROJECT_DIR$/src/common.rs" />
         <option value="$PROJECT_DIR$/src/listener.rs" />
-        <option value="$PROJECT_DIR$/src/lib.rs" />
         <option value="$PROJECT_DIR$/src/node.rs" />
       </list>
     </option>
@@ -90,7 +94,7 @@
       <updated>1607085453011</updated>
       <workItem from="1607085476722" duration="15450000" />
       <workItem from="1607120735226" duration="22599000" />
-      <workItem from="1607254150024" duration="2798000" />
+      <workItem from="1607254150024" duration="6246000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1607096438343</created>
@@ -211,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607256263411</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added basic logging to node">
+      <created>1607257497389</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1607257497389</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,7 +259,8 @@
     <MESSAGE value="added Frame::to_bytes" />
     <MESSAGE value="node.rs and listener.rs wip 1" />
     <MESSAGE value="Fixed CorrelationId and NodeId string issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed CorrelationId and NodeId string issue" />
+    <MESSAGE value="Added basic logging to node" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added basic logging to node" />
   </component>
   <component name="WindowStateProjectService">
     <state x="560" y="307" key="Github.ShareDialog" timestamp="1607119308195">
@@ -260,10 +272,10 @@
     </state>
     <state x="278" y="142" width="800" height="527" key="Vcs.Push.Dialog.v2/0.45.1366.723@0.45.1366.723" timestamp="1607124079557" />
     <state x="391" y="184" width="800" height="527" key="Vcs.Push.Dialog.v2/0.45.1920.1035@0.45.1920.1035" timestamp="1607255710984" />
-    <state x="486" y="107" width="945" height="971" key="search.everywhere.popup" timestamp="1607255579948">
+    <state x="486" y="107" width="945" height="971" key="search.everywhere.popup" timestamp="1607259278956">
       <screen x="0" y="45" width="1920" height="1035" />
     </state>
     <state x="346" y="88" width="672" height="678" key="search.everywhere.popup/0.45.1366.723@0.45.1366.723" timestamp="1607089322165" />
-    <state x="486" y="107" width="945" height="971" key="search.everywhere.popup/0.45.1920.1035@0.45.1920.1035" timestamp="1607255579948" />
+    <state x="486" y="107" width="945" height="971" key="search.everywhere.popup/0.45.1920.1035@0.45.1920.1035" timestamp="1607259278956" />
   </component>
 </project>

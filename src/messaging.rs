@@ -3,6 +3,7 @@ use crypto::digest::Digest;
 use crate::common::*;
 use std::slice::from_mut;
 use std::convert::TryFrom;
+use std::process::id;
 
 pub struct Message {
     pub correlation_id: CorrelationId,
@@ -20,8 +21,8 @@ pub struct HandshakeHeader {
 }
 
 pub struct HandshakeResponseHeader {
-    correlation_id: CorrelationId,
-    flags: [u8; 2],
+    pub correlation_id: CorrelationId,
+    pub flags: [u8; 2],
 }
 
 pub struct Frame {
@@ -148,6 +149,16 @@ impl HandshakeHeader {
         }
     }
 
+    pub fn generate(from: NodeId, frame_size: u16, frame_count: u16, correlation_id: CorrelationId, flags: [u8; 2]) -> HandshakeHeader {
+        HandshakeHeader {
+            from,
+            frame_size,
+            frame_count,
+            correlation_id,
+            flags
+        }
+    }
+    
     pub fn create_response(&self) -> HandshakeResponseHeader {
         HandshakeResponseHeader {
             correlation_id: self.correlation_id.clone(),
@@ -162,6 +173,39 @@ impl HandshakeHeader {
             correlation_id: self.correlation_id.clone(),
             from: self.from.clone(),
         }
+    }
+    
+    pub fn to_bytes(&self) -> [u8; 16] {
+        let mut buffer: [u8; 16] = [0;16];
+        
+        let id_bytes = self.from.to_bytes();
+        let frame_size_bytes = self.frame_size.to_be_bytes();
+        let frame_count_bytes = self.frame_count.to_be_bytes();
+        
+        let cor_id_byte = self.correlation_id.to_bytes();
+
+        buffer[0] = id_bytes[0];
+        buffer[1] = id_bytes[1];
+        buffer[2] = id_bytes[2];
+        buffer[3] = id_bytes[3];
+
+        buffer[4] = frame_size_bytes[0];
+        buffer[5] = frame_size_bytes[1];
+
+        buffer[6] = frame_count_bytes[0];
+        buffer[7] = frame_count_bytes[1];
+
+        buffer[8] = cor_id_byte[0];
+        buffer[9] = cor_id_byte[1];
+        buffer[10] = cor_id_byte[2];
+        buffer[11] = cor_id_byte[3];
+        buffer[12] = cor_id_byte[4];
+        buffer[13] = cor_id_byte[5];
+
+        buffer[14] = self.flags[0];
+        buffer[15] = self.flags[1];
+        
+        buffer
     }
 }
 
